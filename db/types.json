@@ -3,8 +3,38 @@
     {
       "id": 0,
       "category": 0,
-      "name": "personal",
+      "name": "Consumer",
       "description": "Fireworks intended for recreational use during holiday celebrations"
+    },
+    {
+      "id": 1,
+      "category": 0,
+      "name": "Display",
+      "description": "Fireworks that require a licensed operator to discharge a show of these fireworks"
+    },
+    {
+      "id": 2,
+      "category": 0,
+      "name": "Novelty",
+      "description": "Smaller fireworks often for children or parties, legality varries from state to state"
+    },
+    {
+      "id": 3,
+      "category": 1,
+      "name": "Primary Explosives",
+      "description": "An explosive that is sensitive to friction, blows, shock, or heat"
+    },
+    {
+      "id": 4,
+      "category": 1,
+      "name": "Secondary Explosives",
+      "description": "An explosive that combusts nearly instantaneously, thereby producing a violent, shattering effect."
+    },
+    {
+      "id": 5,
+      "category": 1,
+      "name": "Tertiary Explosives",
+      "description": "so insensitive to shock that they cannot be reliably detonated by practical quantities of primary explosive, and instead require an intermediate explosive booster of secondary explosive."
     }
   ]
 }
