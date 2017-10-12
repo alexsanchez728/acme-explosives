@@ -1,11 +1,147 @@
 {
   "products": [
     {
-      "fairy_sparklers": {
+      "repeater": {
         "id": 0,
         "type": 0,
+        "name": "Repeater",
+        "description": "A device in which one fuse lights and ignites a series of small mortars at once, these can contain up to 500 grams of gunpowder and offer a very exciting display."
+      }
+    },
+    {
+      "roman_candles": {
+        "id": 1,
+        "type": 0,
+        "name": "Roman Candles",
+        "description": "A long tube that fires small balls of light in succession to one another. They can have as few as 5 shots, or as many as 200 shots."
+      }
+    },
+    {
+      "fountains": {
+        "id": 2,
+        "type": 0,
+        "name": "Fountains",
+        "description": "Multi-colored sparklers that are safe for any age."
+      }
+    },
+    {
+      "thunder_king": {
+        "id": 3,
+        "type": 1,
+        "name": "100 Shot Thunder King w/ White Glitter Bouquet",
+        "description": "Continuous, green tails to flash report."
+      }
+    },
+    {
+      "blue-brocade": {
+        "id": 4,
+        "type": 1,
+        "name": "49 Shot Blue Brocade & Mines",
+        "description": "Bluetail to Brocade Crown & Blue Stars w/Blue Stars Mine."
+      }
+    },
+    {
+      "friendship": {
+        "id": 5,
+        "type": 1,
+        "name": "100 Shot Friendship",
+        "description": "fan shaped, silver spinners w/ red dahlia shells."
+      }
+    },
+    {
+      "fairy_sparklers": {
+        "id": 6,
+        "type": 2,
         "name": "Fairy Sparklers",
         "description": "Multi-colored sparklers that are safe for any age."
+      }
+    },
+    {
+      "party_poppers": {
+        "id": 7,
+        "type": 2,
+        "name": "Party Poppers",
+        "description": "Once a string is pulled to activate the charge, confetti is thrust into the air and produces a report."
+      }
+    },
+    {
+      "snakes": {
+        "id": 8,
+        "type": 2,
+        "name": "Snakes",
+        "description": "a small compressed pellet that, when lit, expands into a long snake-like object."
+      }
+    },
+    {
+      "acetone_peroxide": {
+        "id": 8,
+        "type": 3,
+        "name": "Acetone peroxide",
+        "description": "An organic peroxide and a primary high explosive. It is produced by the oxidation of acetone to yield a mixture of linear monomer and cyclic dimer, trimer, and tetramer forms."
+      }
+    },
+    {
+      "ammonium_permanganate": {
+        "id": 8,
+        "type": 3,
+        "name": "Ammonium permanganate",
+        "description": "A moderately strong explosive, owing to the combination of oxidizer permanganate anion and reducing ammonium cation."
+      }
+    },
+    {
+      "fulminic_acid": {
+        "id": 8,
+        "type": 3,
+        "name": "Fulminic acid",
+        "description": "very dangerous, and are often used as detonators for other explosive materials."
+      }
+    },
+    {
+      "tnt": {
+        "id": 8,
+        "type": 4,
+        "name": "TNT",
+        "description": "An explosive material with convenient handling properties."
+      }
+    },
+    {
+      "rdx": {
+        "id": 8,
+        "type": 4,
+        "name": "RDX",
+        "description": "A more energetic explosive than TNT, it was used widely in World War II."
+      }
+    },
+    {
+      "dynomite": {
+        "id": 8,
+        "type": 4,
+        "name": "Dynomite",
+        "description": "An explosive made of nitroglycerin, sorbents and stabilizers."
+      }
+    },
+    {
+      "anfo": {
+        "id": 8,
+        "type": 5,
+        "name": "ANFO",
+        "description": "A widely used bulk industrial explosive mixture."
+      }
+    },
+    {
+      "wet-get-explosive": {
+        "id": 8,
+        "type": 5,
+        "name": "Wet Gel Explosive",
+        "description": "A fuel sensitized explosive mixture consisting of an aqueous ammonium nitrate solution that acts as the oxidizer."
+      }
+    },
+    {
+      "f_bomb": {
+        "id": 8,
+        "type": 5,
+        "name": "F Bomb",
+        "description": "Multi-colored word that is safe for any age."
       }
     }
   ]
