@@ -74,7 +74,7 @@
     },
     {
       "acetone_peroxide": {
-        "id": 8,
+        "id": 9,
         "type": 3,
         "name": "Acetone peroxide",
         "description": "An organic peroxide and a primary high explosive. It is produced by the oxidation of acetone to yield a mixture of linear monomer and cyclic dimer, trimer, and tetramer forms."
@@ -82,7 +82,7 @@
     },
     {
       "ammonium_permanganate": {
-        "id": 8,
+        "id": 10,
         "type": 3,
         "name": "Ammonium permanganate",
         "description": "A moderately strong explosive, owing to the combination of oxidizer permanganate anion and reducing ammonium cation."
@@ -90,7 +90,7 @@
     },
     {
       "fulminic_acid": {
-        "id": 8,
+        "id":11,
         "type": 3,
         "name": "Fulminic acid",
         "description": "very dangerous, and are often used as detonators for other explosive materials."
@@ -98,7 +98,7 @@
     },
     {
       "tnt": {
-        "id": 8,
+        "id": 12,
         "type": 4,
         "name": "TNT",
         "description": "An explosive material with convenient handling properties."
@@ -106,7 +106,7 @@
     },
     {
       "rdx": {
-        "id": 8,
+        "id": 13,
         "type": 4,
         "name": "RDX",
         "description": "A more energetic explosive than TNT, it was used widely in World War II."
@@ -114,7 +114,7 @@
     },
     {
       "dynomite": {
-        "id": 8,
+        "id": 14,
         "type": 4,
         "name": "Dynomite",
         "description": "An explosive made of nitroglycerin, sorbents and stabilizers."
@@ -122,7 +122,7 @@
     },
     {
       "anfo": {
-        "id": 8,
+        "id": 15,
         "type": 5,
         "name": "ANFO",
         "description": "A widely used bulk industrial explosive mixture."
@@ -130,7 +130,7 @@
     },
     {
       "wet-get-explosive": {
-        "id": 8,
+        "id": 16,
         "type": 5,
         "name": "Wet Gel Explosive",
         "description": "A fuel sensitized explosive mixture consisting of an aqueous ammonium nitrate solution that acts as the oxidizer."
@@ -138,7 +138,7 @@
     },
     {
       "f_bomb": {
-        "id": 8,
+        "id": 17,
         "type": 5,
         "name": "F Bomb",
         "description": "Multi-colored word that is safe for any age."
