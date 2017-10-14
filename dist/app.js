@@ -37,8 +37,6 @@ const productsJSON = () => {
 	});
 };
 
-
-// This is the way
 var productGetter = () => {
 	categoriesJSON().then((categoryResults) => {
 		categoryResults.forEach((category) => {
@@ -54,42 +52,69 @@ var productGetter = () => {
 	 // end 2nd, begin 3rd
 	}).then((productResults) => {
 
-		productResults.forEach((product) => {
+			productResults.forEach((product) => {
+				categories.forEach((category) => {
+					types.forEach((type) => {
 
-		console.log("opening each object", product[Object.keys(product)]);
-		// console.log("access items", product[Object.keys(product)].id);
+						if (type.category === category.id) {
+							type.categoryName = category.name; // Each type now has the coresponding firework/explosive on it
+						}
+						if (product[Object.keys(product)].type === type.id) {
+							product[Object.keys(product)].typeName = type.name; // type is assigned by type #
+							product[Object.keys(product)].categoryName = type.categoryName; // passing along the category name from type object
+						}
+					}); // end types.forEach()
+				}); // end categories.forEach()
 
-			categories.forEach((category) => {
-				types.forEach((type) => {
+			productsArray.push(product);
 
-					if (type.category === category.id) {
-						type.categoryName = category.name; // Each type now has the coresponding firework/explosive on it
-					}
-					if (product[Object.keys(product)].type === type.id) {
-						product[Object.keys(product)].typeName = type.name; // type is assigned by type #
-						product[Object.keys(product)].categoryName = type.categoryName; // passing along the category name from type object
-					}
-				}); // end types.forEach()
-			}); // end categories.forEach()
+			}); // end productResults.forEach()
+	dom.makeProductDisplay(productsArray); // commented out until it works
 
-		productsArray.push(product);
-		}); // end productResults.forEach()
-
-	// make(); // will initialize the dom builder
-	}); // end product results
-
+		}); // end product results
 }; // end getter
 
 const initializer = () => {
 	productGetter();
-			console.log("output final array of prods", productsArray);
+	console.log("output final array of prods", productsArray);
+
 };
 
 
 
 module.exports = {initializer};
 },{"./dom":2}],2:[function(require,module,exports){
+"use strict";
 
+const outputDiv = $("#output");
+
+const makeProductDisplay = (products) => {
+	for (let i=0; i < products.length; i++) {
+
+		for (const prod in products[i]) {
+
+			let currentProduct = products[i][prod];
+		console.log("just one product by name", currentProduct);
+
+
+		let domString = "";
+		domString		+= `<div class="productCard">`;
+		domString			+= `<h3>${currentProduct.name}</h3>`;
+		domString			+= `<h4>${currentProduct.categoryName}</h4>`;
+		domString			+= `<h5>${currentProduct.typeName}</h5>`;
+		domString			+= `<p>${currentProduct.description}</p>`;
+		domString		+= `</div>`;
+		printToDom(domString);
+		}
+	}
+};
+
+const printToDom = (string) => {
+	outputDiv.append(string);
+};
+
+
+module.exports = {makeProductDisplay};
 },{}],3:[function(require,module,exports){
 "use strict";
 
