@@ -1,10 +1,35 @@
 "use strict";
 
+const data = require("./data");
+const dom = require("./dom");
 
-// get the full array of products
+let selector = $("#categorySelector");
+
+// fire the function to get all data form db
+let allProducts = data.productGetter();
+
+let ItemsBasedOnCategory = [];
 
 // get the dropdown selection
 
-// when one category is selected, compare that category to the category of them all in the array
+selector.on("click", (event) => {
 
-	// save that as a new array, send that to the dom.makeProductDisplay(productByCategory);
+	let currentSelection = event.target.innerHTML;
+	
+// when one category is selected, use the appropriate Getter function
+	if (currentSelection === "Fireworks") {
+		ItemsBasedOnCategory = data.fireworksGetter();
+	} else {
+		ItemsBasedOnCategory = data.demoGetter();
+	}
+
+	// save that as a new array, send that to the printer
+	dom.makeProductDisplay(ItemsBasedOnCategory); // This works here at least
+
+});
+
+
+
+
+
+

@@ -1,11 +1,13 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 "use strict";
 
-const dom = require("./dom");
+// const dom = require("./dom");
 
 let categories = [];
 let types = [];
 let productsArray = [];
+let fireworksArray = [];
+let demolitionArray = [];
 
 const categoriesJSON = () => {
 	return new Promise((resolve, reject) => {
@@ -37,7 +39,7 @@ const productsJSON = () => {
 	});
 };
 
-var productGetter = () => {
+const productGetter = () => {
 	categoriesJSON().then((categoryResults) => {
 		categoryResults.forEach((category) => {
 			categories.push(category);
@@ -65,46 +67,53 @@ var productGetter = () => {
 						}
 					}); // end types.forEach()
 				}); // end categories.forEach()
-
+				if (product[Object.keys(product)].categoryName === "Fireworks") {
+					fireworksArray.push(product);
+				} else {
+					demolitionArray.push(product);
+				}
 			productsArray.push(product);
 
 			}); // end productResults.forEach()
-	dom.makeProductDisplay(productsArray); // commented out until it works
-
 		}); // end product results
-}; // end getter
 
-const initializer = () => {
-	productGetter();
-	console.log("output final array of prods", productsArray);
+		return productsArray;
+	}; // end getter
 
+
+const demoGetter = () => {
+	return demolitionArray;
+};
+
+const fireworksGetter = () => {
+	return fireworksArray;
 };
 
 
-
-module.exports = {initializer};
-},{"./dom":2}],2:[function(require,module,exports){
+module.exports = {productGetter, demoGetter, fireworksGetter};
+},{}],2:[function(require,module,exports){
 "use strict";
 
 const outputDiv = $("#output");
 
 const makeProductDisplay = (products) => {
+	// Clear outputDiv so items to list infinitely
+	outputDiv.html("");
+
 	for (let i=0; i < products.length; i++) {
 
 		for (const prod in products[i]) {
 
 			let currentProduct = products[i][prod];
-		console.log("just one product by name", currentProduct);
 
-
-		let domString = "";
-		domString		+= `<div class="productCard">`;
-		domString			+= `<h3>${currentProduct.name}</h3>`;
-		domString			+= `<h4>${currentProduct.categoryName}</h4>`;
-		domString			+= `<h5>${currentProduct.typeName}</h5>`;
-		domString			+= `<p>${currentProduct.description}</p>`;
-		domString		+= `</div>`;
-		printToDom(domString);
+			let domString = "";
+			domString		+= `<div class="productCard">`;
+			domString			+= `<h3>${currentProduct.name}</h3>`;
+			domString			+= `<h4>${currentProduct.categoryName}</h4>`;
+			domString			+= `<h5>${currentProduct.typeName}</h5>`;
+			domString			+= `<p>${currentProduct.description}</p>`;
+			domString		+= `</div>`;
+			printToDom(domString);
 		}
 	}
 };
@@ -119,9 +128,45 @@ module.exports = {makeProductDisplay};
 "use strict";
 
 const data = require("./data");
+const dom = require("./dom");
 
-$(document).ready(() => {
-	data.initializer();
+let selector = $("#categorySelector");
+
+// fire the function to get all data form db
+let allProducts = data.productGetter();
+
+let ItemsBasedOnCategory = [];
+
+// get the dropdown selection
+
+selector.on("click", (event) => {
+
+	let currentSelection = event.target.innerHTML;
+	
+// when one category is selected, use the appropriate Getter function
+	if (currentSelection === "Fireworks") {
+		ItemsBasedOnCategory = data.fireworksGetter();
+	} else {
+		ItemsBasedOnCategory = data.demoGetter();
+	}
+
+	// save that as a new array, send that to the printer
+	dom.makeProductDisplay(ItemsBasedOnCategory); // This works here at least
+
 });
 
-},{"./data":1}]},{},[3]);
+
+
+
+
+
+
+},{"./data":1,"./dom":2}],4:[function(require,module,exports){
+"use strict";
+
+// const data = require("./data");
+$(document).ready(() => {
+require("./events");
+});
+
+},{"./events":3}]},{},[4]);
