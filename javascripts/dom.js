@@ -13,10 +13,10 @@ const makeProductDisplay = (products) => {
 			let currentProduct = products[i][prod];
 
 			let domString = "";
-			domString		+= `<div class="productCard">`;
+			domString		+= `<div class="col-sm-4 text-center productCard ${currentProduct.categoryName === "Demolition" ? "card-bad" : "card-good"}">`;
 			domString			+= `<h3>${currentProduct.name}</h3>`;
-			domString			+= `<h4>${currentProduct.categoryName}</h4>`;
-			domString			+= `<h5>${currentProduct.typeName}</h5>`;
+			domString			+= `<h4>Category: ${currentProduct.categoryName}</h4>`;
+			domString			+= `<h5>Product Type: ${currentProduct.typeName}</h5>`;
 			domString			+= `<p>${currentProduct.description}</p>`;
 			domString		+= `</div>`;
 			printToDom(domString);
