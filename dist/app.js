@@ -107,10 +107,10 @@ const makeProductDisplay = (products) => {
 			let currentProduct = products[i][prod];
 
 			let domString = "";
-			domString		+= `<div class="productCard">`;
+			domString		+= `<div class="col-sm-4 text-center productCard ${currentProduct.categoryName === "Demolition" ? "card-bad" : "card-good"}">`;
 			domString			+= `<h3>${currentProduct.name}</h3>`;
-			domString			+= `<h4>${currentProduct.categoryName}</h4>`;
-			domString			+= `<h5>${currentProduct.typeName}</h5>`;
+			domString			+= `<h4>Category: ${currentProduct.categoryName}</h4>`;
+			domString			+= `<h5>Product Type: ${currentProduct.typeName}</h5>`;
 			domString			+= `<p>${currentProduct.description}</p>`;
 			domString		+= `</div>`;
 			printToDom(domString);
@@ -134,6 +134,8 @@ let selector = $("#categorySelector");
 
 // fire the function to get all data form db
 let allProducts = data.productGetter();
+let fireworksOnly = data.fireworksGetter();
+let demoOnly = data.demoGetter();
 
 let ItemsBasedOnCategory = [];
 
@@ -142,12 +144,14 @@ let ItemsBasedOnCategory = [];
 selector.on("click", (event) => {
 
 	let currentSelection = event.target.innerHTML;
-	
+
 // when one category is selected, use the appropriate Getter function
 	if (currentSelection === "Fireworks") {
-		ItemsBasedOnCategory = data.fireworksGetter();
+		ItemsBasedOnCategory = fireworksOnly;
+	} else if (currentSelection === "Explosives"){
+		ItemsBasedOnCategory = demoOnly;
 	} else {
-		ItemsBasedOnCategory = data.demoGetter();
+		ItemsBasedOnCategory = allProducts;
 	}
 
 	// save that as a new array, send that to the printer

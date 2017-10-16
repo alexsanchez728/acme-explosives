@@ -7,6 +7,8 @@ let selector = $("#categorySelector");
 
 // fire the function to get all data form db
 let allProducts = data.productGetter();
+let fireworksOnly = data.fireworksGetter();
+let demoOnly = data.demoGetter();
 
 let ItemsBasedOnCategory = [];
 
@@ -15,12 +17,14 @@ let ItemsBasedOnCategory = [];
 selector.on("click", (event) => {
 
 	let currentSelection = event.target.innerHTML;
-	
+
 // when one category is selected, use the appropriate Getter function
 	if (currentSelection === "Fireworks") {
-		ItemsBasedOnCategory = data.fireworksGetter();
+		ItemsBasedOnCategory = fireworksOnly;
+	} else if (currentSelection === "Explosives"){
+		ItemsBasedOnCategory = demoOnly;
 	} else {
-		ItemsBasedOnCategory = data.demoGetter();
+		ItemsBasedOnCategory = allProducts;
 	}
 
 	// save that as a new array, send that to the printer
