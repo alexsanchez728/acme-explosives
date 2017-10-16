@@ -1,10 +1,12 @@
 "use strict";
 
-const dom = require("./dom");
+// const dom = require("./dom");
 
 let categories = [];
 let types = [];
 let productsArray = [];
+let fireworksArray = [];
+let demolitionArray = [];
 
 const categoriesJSON = () => {
 	return new Promise((resolve, reject) => {
@@ -36,7 +38,7 @@ const productsJSON = () => {
 	});
 };
 
-var productGetter = () => {
+const productGetter = () => {
 	categoriesJSON().then((categoryResults) => {
 		categoryResults.forEach((category) => {
 			categories.push(category);
@@ -64,21 +66,32 @@ var productGetter = () => {
 						}
 					}); // end types.forEach()
 				}); // end categories.forEach()
-
+				if (product[Object.keys(product)].categoryName === "Fireworks") {
+					fireworksArray.push(product);
+				} else {
+					demolitionArray.push(product);
+				}
 			productsArray.push(product);
 
 			}); // end productResults.forEach()
-	dom.makeProductDisplay(productsArray); // commented out until it works
-
 		}); // end product results
-}; // end getter
+	
+		return productsArray;
+	}; // end getter
 
-const initializer = () => {
-	productGetter();
-	console.log("output final array of prods", productsArray);
+// const initializer = () => {
+// 	productGetter();
+// 	console.log("output final array of prods", productsArray);
+// 	dom.makeProductDisplay(productsArray);
+// };
 
+const demoGetter = () => {
+	return demolitionArray;
+};
+
+const fireworksGetter = () => {
+	return fireworksArray;
 };
 
 
-
-module.exports = {initializer};
+module.exports = {productGetter, demoGetter, fireworksGetter};
