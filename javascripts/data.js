@@ -75,15 +75,10 @@ const productGetter = () => {
 
 			}); // end productResults.forEach()
 		}); // end product results
-	
+
 		return productsArray;
 	}; // end getter
 
-// const initializer = () => {
-// 	productGetter();
-// 	console.log("output final array of prods", productsArray);
-// 	dom.makeProductDisplay(productsArray);
-// };
 
 const demoGetter = () => {
 	return demolitionArray;
