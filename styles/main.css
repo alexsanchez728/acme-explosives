@@ -24,3 +24,7 @@ header, .dropdown {
 .productCard.card-good {
 	background-color: #28546C;
 }
+.dropdown-menu {
+    left: 50% !important;
+    margin-left: -80px;
+}
