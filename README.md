@@ -9,7 +9,6 @@
 * Create a simple user interface for your product catalog where a user can select a category from a dropdown
 Once all data is loaded, you need to display the products in a Bootstrap grid.
 *  Each product must display the string name of its product type, and product category. Not the integer id value.
-* Create
 
 
 ## Final Product
